@@ -1,0 +1,32 @@
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Play" rel="stylesheet">
+
+
+<ion-content class="register-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <ion-label class="logo">WenTis</ion-label>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+    <form class="form-register">
+       <ion-row>
+        <ion-item>
+	    <ion-input type="text"  name="email" [(ngModel)]="email" placeholder="email"></ion-input>
+	  </ion-item>
+
+    <ion-item>
+	     <ion-input type="password"  name="password" [(ngModel)]="password" placeholder="password"></ion-input>
+	  </ion-item>
+
+    <ion-item>
+	     <ion-input type="password"  name="Rpassword" [(ngModel)]="Rpassword" placeholder="Repeat Password"></ion-input>
+	  </ion-item>
+        </ion-row>
+
+      <div padding>
+      <button ion-button color="dark" class="submit-btn" block (click)="register()">New Account</button>
+    </div>
+    </form>
+
+</ion-content>

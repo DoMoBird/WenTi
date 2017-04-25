@@ -1,0 +1,26 @@
+{
+	"WentiList" : [
+		"0" : {
+			"img": "https://s-media-cache-ak0.pinimg.com/originals/c8/95/67/c89567038835cc73f6010e823a38f267--universal-studios-one-piece-manga.jpg",
+			"Title": "one piece",
+			"content": "anime mas visto actualmente"
+		},
+		"1" : {
+			"img": "http://www.gamingesports.com/wp-content/uploads/2016/09/pokemon-hazte-con-todos.jpg",
+			"Title": "pokemon-hazte-con-todos",
+			"content": "juegos de nintendo mas popular"
+		},
+		"2" : {
+			"img": "https://s-media-cache-ak0.pinimg.com/originals/64/55/45/64554572dcb169a6136df3ca0c36e0ed.jpg",
+			"Title": "Dragon Ball",
+			"content": "el anime con mas recuerdo"
+		},
+		"3" : {
+			"img": "https://www.proprofs.com/quiz-school/topic_images/p19rfa3dq9o72vei1nagobammt3.jpg",
+			"Title": "doraemon",
+			"content": "el anime con mas fans en la edad de los nenes"
+		}
+	]
+
+
+}
