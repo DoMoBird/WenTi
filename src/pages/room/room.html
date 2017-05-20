@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+    
+        <ion-title>
+            Room
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding="room">
+  <ion-card>
+
+    <img [src]="room_datos.img"/>
+
+    <ion-card-content>
+      <ion-card-title>
+       {{room_datos.Title}}
+      </ion-card-title>
+      <p>User Name: [[name]]</p>
+      <p>Room PIN: {{room_datos.pin}}</p>
+      <p>
+        {{room_datos.Content}}
+      </p>
+      
+    </ion-card-content>
+    
+  </ion-card>
+
+  <!--<ion-list>
+    
+    <ion-item *ngFor="let item of room_datos.Preguntas"> 
+      <h1 *ngIf="item.tipo == 'checkbox'">OK: {{item.tipo}}</h1>
+      <div *ngIf="item.tipo == 'checkbox'">
+        <h1>hola</h1>
+        <ion-label *ngIf="item.tipo == 'checkbox'">jasdkfjas</ion-label>
+        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+      </div>
+
+    
+    </ion-item>
+
+    </ion-list>-->
+    <questionCheckbox *ngIf="sadfsad"></questionCheckbox>
+
+    <button ion-button (click)="startQuestion($event,room_datos.Preguntas,0)">Empezar</button>
+    
+
+</ion-content>

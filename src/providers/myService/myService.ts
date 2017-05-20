@@ -14,9 +14,13 @@ export class myService {
 	}
 
 	getDatos() : Observable< any> {
-		return this._http.get(`${this._url}/WentiList.json`)
+		return this._http.get(`${this._url}/Room.json`)
 			.map((response: Response) => response.json());
 				
+	}
+
+	getRoom() : Observable< any> {
+		return this._http.get(`${this._http}/Room.json`).map((response: Response) => response.json());
 	}
 
 

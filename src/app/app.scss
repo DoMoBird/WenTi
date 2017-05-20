@@ -14,3 +14,23 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+app {
+    .toolbar-background {
+        background-color: #56CA96;
+    }
+
+    .ion-list {
+        background: #56CA96;
+    }
+    .imgFondo{
+        position: relative;
+    }
+    .imgRedonda{
+        position: absolute;
+        width:200px;
+        height:200px;
+        border-radius:150px;
+    }
+}

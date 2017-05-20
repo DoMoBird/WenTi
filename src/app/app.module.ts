@@ -9,7 +9,10 @@ import { mainLoginPage } from '../pages/mainLogin/mainLogin';
 import { studentLoginPage } from '../pages/studentLogin/studentLogin';
 import { Login } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
-import { MyWenTisPage } from '../pages/MyWenTis/MyWenTis'
+import { MyWenTisPage } from '../pages/MyWenTis/MyWenTis';
+import { roomPage } from '../pages/room/room';
+import { profilePage } from '../pages/profile/profile';
+import { questionCheckbox } from '../pages/question_checkbox/question';
 import * as firebase from 'firebase';
 import { HttpModule } from '@angular/http';
 
@@ -36,7 +39,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
-    MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage
+    MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage, roomPage, questionCheckbox,
+     profilePage
     
     
   ],
@@ -48,7 +52,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage
+    MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage, roomPage, questionCheckbox,
+    profilePage
    
     
   ],

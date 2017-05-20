@@ -6,3 +6,32 @@
     <ion-title>MyWenTis</ion-title>
   </ion-navbar>
 </ion-header>
+
+<ion-content padding>
+  <ion-list>
+  <ion-item *ngFor="let item of datos_recuperados"  (click)='viewList(item.pin)'>
+    <ion-thumbnail item-left>
+      <img [src]="item.img">
+    </ion-thumbnail>
+    <h2>{{item.Title}}</h2>
+    <p>{{item.Content}}</p>
+    <button ion-button clear item-right>Favorite</button>
+  </ion-item>
+  <!--<ion-item>
+    <ion-thumbnail item-left>
+      <img src="../assets/img/dragonball.png">
+    </ion-thumbnail>
+    <h2>Dragon Ball</h2>
+    <p>Hayao Miyazaki • 1988</p>
+    <button ion-button clear item-right>View</button>
+  </ion-item>
+  <ion-item>
+    <ion-thumbnail item-left>
+      <img src="../assets/img/doraemon.png">
+    </ion-thumbnail>
+    <h2>Doraemon</h2>
+    <p>Hayao Miyazaki • 1988</p>
+    <button ion-button clear item-right>View</button>
+  </ion-item>-->
+</ion-list>
+</ion-content>

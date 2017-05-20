@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+    
+        <ion-title>
+            Pregunta número {{indice}}
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding="room">
+    <ion-title>{{preguntas[indice].encuensta.title}}</ion-title>
+    <ion-list *ngFor="let item of preguntas[indice].encuensta.respuesta">
+        <ion-item>
+            <ion-label>{{item.texto}}</ion-label>
+            <ion-checkbox></ion-checkbox>
+        </ion-item>
+
+
+    </ion-list>
+
+
+    <button ion-button (click)="nextQuestion($event,preguntas,0)" *ngIf="indice < preguntas.length">Siguiente</button>
+    <button ion-button (click)="nextQuestion($event,preguntas,0)" *ngIf="indice == preguntas.length">Finalizar</button>
+
+</ion-content>

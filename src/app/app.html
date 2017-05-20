@@ -6,8 +6,13 @@
   </ion-header>
 
   <ion-content>
+    <div>
+    <img src="../assets/img/china.jpg" class="imgFondo">
+    <img src="../assets/img/onepiece.jpg" class="imgRedonda">
+    </div>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button color="#56CA96" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-left name="{{p.icon}}"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>

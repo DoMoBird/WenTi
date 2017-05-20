@@ -9,6 +9,10 @@ import { Login } from '../pages/login/login';
 import { MyWenTisPage } from '../pages/MyWenTis/MyWenTis';
 import { mainLoginPage } from '../pages/mainLogin/mainLogin';
 import { myService } from '../providers/myService/myService';
+import { studentLoginPage } from '../pages/studentLogin/studentLogin';
+import { roomPage } from '../pages/room/room';
+import { profilePage } from '../pages/profile/profile';
+import { questionCheckbox } from '../pages/question_checkbox/question_checkbox';
 
 import {FIREBASE_PROVIDERS,
   defaultFirebase,
@@ -19,6 +23,7 @@ import {FIREBASE_PROVIDERS,
 
 
 @Component({
+  selector: 'app',
   templateUrl: 'app.html',
   /*providers: [
     FIREBASE_PROVIDERS,
@@ -39,16 +44,17 @@ export class MyApp {
 
   rootPage: any = mainLoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-       { title: 'MyWenTis', component: MyWenTisPage }
+      { title: 'Home', component: HomePage, icon:'home'},
+      { title: 'List', component: ListPage, icon:'list'},
+       { title: 'MyWenTis', component: MyWenTisPage, icon: 'happy'},
+       {title: 'Profile', component: profilePage, icon: 'person'}
     ];
 
   }
