@@ -15,6 +15,11 @@ import { profilePage } from '../pages/profile/profile';
 import { questionCheckbox } from '../pages/question_checkbox/question';
 import * as firebase from 'firebase';
 import { HttpModule } from '@angular/http';
+import { ChartsModule } from 'ng2-charts/charts/charts';
+import { Chart } from 'chart.js';
+import { createQuestionPage } from '../pages/createQuestion/createQuestion';
+import { createRoomPage } from '../pages/createRoom/createRoom';
+
 
 
 /*import { myService } from '../providers/myService/myService';*/
@@ -40,7 +45,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage, roomPage, questionCheckbox,
-     profilePage
+     profilePage,createQuestionPage, createRoomPage
     
     
   ],
@@ -48,12 +53,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage, roomPage, questionCheckbox,
-    profilePage
+    profilePage, createQuestionPage, createRoomPage
    
     
   ],

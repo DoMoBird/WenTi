@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Chart } from 'chart.js';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -13,6 +14,7 @@ import { studentLoginPage } from '../pages/studentLogin/studentLogin';
 import { roomPage } from '../pages/room/room';
 import { profilePage } from '../pages/profile/profile';
 import { questionCheckbox } from '../pages/question_checkbox/question_checkbox';
+import { createQuestionPage} from '../pages/createQuestion/createQuestion';
 
 import {FIREBASE_PROVIDERS,
   defaultFirebase,
@@ -42,7 +44,7 @@ import {FIREBASE_PROVIDERS,
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = mainLoginPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 

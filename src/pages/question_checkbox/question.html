@@ -9,18 +9,73 @@
 </ion-header>
 
 <ion-content padding="room">
-    <ion-title>{{preguntas[indice].encuensta.title}}</ion-title>
-    <ion-list *ngFor="let item of preguntas[indice].encuensta.respuesta">
-        <ion-item>
-            <ion-label>{{item.texto}}</ion-label>
-            <ion-checkbox></ion-checkbox>
-        </ion-item>
+        <!--{{preguntas[indice].encuesta.title}}-->
+    
+        <ion-list *ngIf="preguntas[indice].encuesta.tipo == 'checkbox'">
+            <ion-list-header>
+                <strong>{{preguntas[indice].encuesta.title}}</strong>
+            </ion-list-header>
+            <ion-item *ngFor="let item of preguntas[indice].encuesta.respuesta">
+                <ion-label>{{item.texto}}</ion-label>
+               <ion-checkbox color="dark" checked="false" (click)="onModelChange($event,item.texto)"></ion-checkbox>
+            </ion-item>
+         </ion-list>
+
+          <ion-list *ngIf="preguntas[indice].encuesta.tipo == 'respuesta corta'">
+            
+            <ion-label>
+                <strong>{{preguntas[indice].encuesta.title}}</strong>
+                </ion-label>
+            <ion-item>
+                <ion-textarea type="text" name="descripcion"></ion-textarea>
+            </ion-item>
+            
+          </ion-list>
+
+          <ion-list radio-group *ngIf="preguntas[indice].encuesta.tipo == 'radio'">
+            <ion-list-header>
+                <strong>{{preguntas[indice].encuesta.title}}</strong>
+            </ion-list-header>
+            <ion-item *ngFor="let item of preguntas[indice].encuesta.respuesta">
+                <ion-label>{{item.texto}}</ion-label>
+               <ion-radio color="dark" checked="false" (click)="onModelChange($event,item.texto)"></ion-radio>
+            </ion-item>
+         </ion-list>
+
+        <!--<table *ngIf="preguntas[indice].encuesta.tipo == 'radio'">
+            <thead>{{preguntas[indice].encuesta.title}}</thead>
+            <tbody>
+                <ion-row *ngFor="let item of preguntas[indice].encuesta.respuestaH">
+                        <ion-col>{{item.texto}}</ion-col>
+                        <ion-radio color="dark" checked="false"></ion-radio>
+                </ion-row>
+                <ion-col *ngFor="let items of preguntas[indice].encuesta.respuesta">
+                    <ion-row>{{items.texto}}</ion-row>
+                    <ion-radio color="dark" checked="false"></ion-radio>
+                </ion-col>
+            </tbody>
+        </table>-->
+                
+                
+               
+         
+        <!--<ion-list *ngIf="item.tipo == 'respuesta corta'">
+            <ion-list-header>{{item.title}}</ion-list-header>
+            <ion-item>
+                <ion-label>{{item.texto}}</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+        -->
 
 
-    </ion-list>
+    <button *ngIf="indice < preguntas.length-1" ion-item icon-right color="danger" (click)="nextQuestion($event)" >
+    Siguiente
+    </button>
 
-
-    <button ion-button (click)="nextQuestion($event,preguntas,0)" *ngIf="indice < preguntas.length">Siguiente</button>
-    <button ion-button (click)="nextQuestion($event,preguntas,0)" *ngIf="indice == preguntas.length">Finalizar</button>
+    <button *ngIf="indice == preguntas.length-1" ion-item icon-right color="danger" (click)="nextQuestion($event)" >
+    Finalizar
+    </button>
+  
 
 </ion-content>

@@ -4,6 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>MyWenTis</ion-title>
+    <button item-right><ion-icon name="md-add-circle"></ion-icon></button>
   </ion-navbar>
 </ion-header>
 
@@ -15,8 +16,12 @@
     </ion-thumbnail>
     <h2>{{item.Title}}</h2>
     <p>{{item.Content}}</p>
-    <button ion-button clear item-right>Favorite</button>
+    <button ion-button clear item-right  (click)="startQuestion(item.pin)">Start</button>
   </ion-item>
+
+  <ion-fab bottom right>
+  <button ion-fab color="primary" (click)="newRoom()"><ion-icon name="add"></ion-icon></button>
+</ion-fab>
   <!--<ion-item>
     <ion-thumbnail item-left>
       <img src="../assets/img/dragonball.png">

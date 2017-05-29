@@ -12,6 +12,7 @@ import { roomPage } from '../room/room';
 export class HomePage {
 
 	datos_recuperados: any;
+	datos2: any;
 
   constructor(public navCtrl: NavController, private _myservice: myService) {
   	/*window.localStorage.removeItem('currentuser');
@@ -34,6 +35,15 @@ export class HomePage {
 
 	viewList(item){
 
+		for(var p in this.datos_recuperados) {
+			if(this.datos_recuperados[p].pin == item){
+			this.navCtrl.push(roomPage, this.datos_recuperados[p]);
+		}
+		}
+	}
+
+	startQuestion(item){
+		this._myservice.openRoom(0).subscribe(c => this.datos2=c);
 		for(var p in this.datos_recuperados) {
 			if(this.datos_recuperados[p].pin == item){
 			this.navCtrl.push(roomPage, this.datos_recuperados[p]);

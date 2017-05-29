@@ -13,6 +13,7 @@ export class roomPage{
     public name = '';
     room_datos: any;
     public iterm: any;
+    datos_recuperados: any;
 
     constructor(public nav: NavController, private _myservice: myService, public navP: NavParams){
         this.iterm = navP.get('item');
@@ -23,9 +24,25 @@ export class roomPage{
     } 
 
     startQuestion($event, preguntas, current:number){
-      if(this.room_datos.Preguntas[current].tipo == "checkbox")
-        this.nav.push(questionCheckbox, {preguntas: this.room_datos.Preguntas, index: current});
+
+      console.log("current-> "+current);
+      console.log(this.room_datos.Preguntas[current].tipo);
+
+   
+      if(this.room_datos.open=="true"){
+        this.nav.push(questionCheckbox, {
+          preguntas: this.room_datos.Preguntas, 
+          index: current, //index vale 0 porque empezamos por la 1a pregunta
+          respuestas : [
+            0,0,0
+          ]
+       });
       
+    }
+  }
+
+    cerrar($event){
+      this._myservice.closeRoom(0).subscribe(c => this.datos_recuperados=c);
     }
 
    

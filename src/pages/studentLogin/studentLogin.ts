@@ -29,7 +29,7 @@ export class studentLoginPage{
 
       for ( var p in this.room_datos ){
 
-        if(this.room_datos[p].pin == this.pin){
+        if(this.room_datos[p].pin == this.pin && this.room_datos[p].open==true){
           console.log("encontramos pin igual en elemento "+p+" y recuperamos "+this.room_datos[p].pin);
           this.nav.push(roomPage, this.room_datos[p]);
         }

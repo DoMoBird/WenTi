@@ -15,7 +15,7 @@
     </ion-thumbnail>
     <h2>{{item.Title}}</h2>
     <p>{{item.Content}}</p>
-    <button ion-button clear item-right>Favorite</button>
+    <button ion-button clear item-right  (click)="startQuestion(item.pin)">Start</button>
   </ion-item>
   <!--<ion-item>
     <ion-thumbnail item-left>

@@ -40,9 +40,15 @@
     </ion-item>
 
     </ion-list>-->
-    <questionCheckbox *ngIf="sadfsad"></questionCheckbox>
+    <ion-list>
+      <ion-list-header>Questions {{room_datos.Preguntas[0].encuesta.id}}</ion-list-header>
+      <!--<ion-item ngFor="let item of room_datos.Preguntas">
+        <ion-label>{{item.encuesta}}</ion-label>
+      </ion-item>-->
+    </ion-list>
 
     <button ion-button (click)="startQuestion($event,room_datos.Preguntas,0)">Empezar</button>
     
+    <button ion-button (click)="cerrar($event)">Cerrar</button>
 
 </ion-content>
