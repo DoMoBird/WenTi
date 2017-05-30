@@ -14,6 +14,7 @@ export class questionCheckbox{
     public respuestas: any[];
     public indice: number;
     public tipo: any;
+    datos_recuperados: any;
 
     constructor(public nav: NavController, private _myservice: myService, public navP: NavParams){
         this.item = navP.get('item');
@@ -26,12 +27,16 @@ export class questionCheckbox{
         console.log("Al entrar en question "+this.respuestas[0]+" "+this.respuestas[1]);
     } 
 
+
     nextQuestion($event){
+       
+        this._myservice.getDatos().subscribe(c => this.datos_recuperados=c);
         console.log("indice vale "+this.indice+" y length "+this.preguntas.length);
         if(this.indice == this.preguntas.length-1){
             console.log("ntro en el if");
+            
             //guardamos las respuestas con el put
-            this.nav.push(roomPage);
+            this.nav.push(roomPage, this.datos_recuperados);
         }
         let i = this.indice +1;
         this.nav.push(questionCheckbox, {

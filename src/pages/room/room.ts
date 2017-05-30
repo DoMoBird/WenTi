@@ -16,7 +16,7 @@ export class roomPage{
     datos_recuperados: any;
 
     constructor(public nav: NavController, private _myservice: myService, public navP: NavParams){
-        this.iterm = navP.get('item');
+        //this.iterm = navP.get('item');
 
         //this.pin = navP.data;
         this.room_datos = navP.data;
