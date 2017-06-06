@@ -36,6 +36,7 @@ export class roomPage{
           respuestas : [
             0,0,0
           ]
+          
        });
       
     }
