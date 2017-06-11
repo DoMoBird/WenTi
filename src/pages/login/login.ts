@@ -4,6 +4,10 @@ import { AuthProviders, AuthMethods, AngularFire, FirebaseAuthState } from 'angu
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
 import * as firebase from 'firebase';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { EmailValidator } from '../../validators/email';
+import { AuthProvider } from '../../providers/auth/auth';
+
 
 /**
  * Generated class for the Login page.
@@ -18,16 +22,27 @@ import * as firebase from 'firebase';
 })
 export class Login{
   
-
+  
 	email: any;
 	password: any;
   public loading: Loading;
   /*loader: any;
   user = {email: '', password: ''};*/
+  public loginForm:FormGroup;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public angfire: AngularFire,
-  public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
-  }
+  public loadingCtrl: LoadingController, public alertCtrl: AlertController, public authProvider: AuthProvider,
+   public formBuilder: FormBuilder, public authservice: AuthProvider) {
+  
+    this.loginForm = formBuilder.group({
+      email: ['', Validators.compose([Validators.required, 
+        EmailValidator.isValid])],
+      password: ['', Validators.compose([Validators.minLength(6), 
+        Validators.required])]
+    });
+
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login');
@@ -38,21 +53,9 @@ export class Login{
     this.navCtrl.push(RegisterPage);
   }
 
-   /*login() {
-    this.showLoading()
- 
-    this.angfire.auth.login(this.user, {
-      provider: AuthProviders.Password,
-        method: AuthMethods.Password
-    }).then((authData) => {
-      this.loader.dismiss();
-      this.navCtrl.setRoot(HomePage);
-    }).catch((error) => {
-      console.log(error);
-    });
-  }*/
 
-  login(){
+
+  /*login(){
     this.showLoading();
   	this.angfire.auth.login({
       
@@ -73,6 +76,19 @@ export class Login{
       this.navCtrl.push(HomePage);
     }).catch((error)=> {
       console.log(error);
+    })
+  }*/
+
+  
+
+  login(){
+    this.showLoading();
+    this.authservice.loginUser(this.email, this.password).then((res: any) => {
+      if (!res.code){
+        this.loading.dismiss();
+        this.navCtrl.setRoot(HomePage);
+      }else
+        alert(res);
     })
   }
 

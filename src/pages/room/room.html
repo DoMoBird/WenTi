@@ -41,9 +41,10 @@
 
     </ion-list>-->
     <!--<ion-list>
-      <ion-list-header>Questions {{room_datos.Preguntas[0].encuesta.id}}</ion-list-header>
-      <!--<ion-item ngFor="let item of room_datos.Preguntas">
-        <ion-label>{{item.encuesta}}</ion-label>
+      <ion-list-header>List of Questions</ion-list-header>
+          <ion-item ngFor="let item of room_datos.Preguntas[indice]">
+        <ion-label>{{item.title}}</ion-label>
+        <ion-label>Type: {{item.tipo}}</ion-label>
       </ion-item>
     </ion-list>-->
 

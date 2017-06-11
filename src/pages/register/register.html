@@ -12,20 +12,21 @@
     <form class="form-register">
        <ion-row>
         <ion-item>
-	    <ion-input type="text"  name="email" [(ngModel)]="email" placeholder="email"></ion-input>
+	    <ion-input type="email"  name="email" [(ngModel)]="newuser.email" placeholder="email"></ion-input>
 	  </ion-item>
 
     <ion-item>
-	     <ion-input type="password"  name="password" [(ngModel)]="password" placeholder="password"></ion-input>
+	     <ion-input type="password"  name="password" [(ngModel)]="newuser.password" placeholder="password"></ion-input>
 	  </ion-item>
 
     <ion-item>
-	     <ion-input type="password"  name="Rpassword" [(ngModel)]="Rpassword" placeholder="Repeat Password"></ion-input>
+	     <ion-input type="text"  name="userName" [(ngModel)]="newuser.userName" placeholder="userName"></ion-input>
 	  </ion-item>
         </ion-row>
 
       <div padding>
       <button ion-button color="dark" class="submit-btn" block (click)="register()">New Account</button>
+      <ion-label block (click)="goback()">Go Back</ion-label>
     </div>
     </form>
 

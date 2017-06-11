@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Login } from '../login/login';
 import { myService } from '../../providers/myService/myService';
 import { roomPage } from '../room/room';
@@ -46,7 +46,11 @@ export class HomePage {
 		this._myservice.openRoom(0).subscribe(c => this.datos2=c);
 		for(var p in this.datos_recuperados) {
 			if(this.datos_recuperados[p].pin == item){
-			this.navCtrl.push(roomPage, this.datos_recuperados[p]);
+			//this.navCtrl.push(roomPage, this.datos_recuperados[p],);
+			this.navCtrl.push(roomPage, {
+				roomDatos: this.datos_recuperados[p],
+				index: p
+			})
 		}
 		}
 	}

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/Auth';
+import * as firebase from 'firebase';
 import {AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,12 +15,14 @@ import { MyWenTisPage } from '../pages/MyWenTis/MyWenTis';
 import { roomPage } from '../pages/room/room';
 import { profilePage } from '../pages/profile/profile';
 import { questionCheckbox } from '../pages/question_checkbox/question';
-import * as firebase from 'firebase';
 import { HttpModule } from '@angular/http';
 import { ChartsModule } from 'ng2-charts/charts/charts';
 import { Chart } from 'chart.js';
 import { createQuestionPage } from '../pages/createQuestion/createQuestion';
 import { createRoomPage } from '../pages/createRoom/createRoom';
+import { AuthProvider } from '../providers/auth/auth';
+import { config } from './app.firebaseconfig';
+
 
 
 
@@ -31,14 +35,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
   // Initialize Firebase
-  const config = {
+ 
+
+  /*const config = {
     apiKey: "AIzaSyA6bZBIuC4UsF6HmXIkuXdWDPWNZWBBiL0",
     authDomain: "wentibd.firebaseapp.com",
     databaseURL: "https://wentibd.firebaseio.com",
     projectId: "wentibd",
     storageBucket: "wentibd.appspot.com",
     messagingSenderId: "411517629942"
-  };
+  };*/
   
 
 
@@ -66,7 +72,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    AngularFireAuth
+    
   ]
 })
 export class AppModule {}

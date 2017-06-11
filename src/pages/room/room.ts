@@ -14,12 +14,15 @@ export class roomPage{
     room_datos: any;
     public iterm: any;
     datos_recuperados: any;
+    indice: any;
 
     constructor(public nav: NavController, private _myservice: myService, public navP: NavParams){
         //this.iterm = navP.get('item');
 
         //this.pin = navP.data;
         this.room_datos = navP.data;
+        
+        this.indice = navP.get('index');
         console.log("tengo un pin "+this.room_datos.pin);
     } 
 
@@ -35,7 +38,7 @@ export class roomPage{
           index: current, //index vale 0 porque empezamos por la 1a pregunta
           respuestas : [
             0,0,0
-          ]
+          ],
           
        });
       
