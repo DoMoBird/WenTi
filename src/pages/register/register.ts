@@ -34,12 +34,12 @@ export class RegisterPage{
       toaster.present();
     }
     else {
-      let loader = this.loadingCtrl.create({
+      /*let loader = this.loadingCtrl.create({
         content: 'Please wait'
       });
-      loader.present();
+      loader.present();*/
       this.authservice.signupUser(this.newuser).then((res: any) => {
-        loader.dismiss();
+        //loader.dismiss();
         if (res.success)
           this.navCtrl.setRoot(HomePage);
         else

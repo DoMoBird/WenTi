@@ -15,6 +15,7 @@ import { roomPage } from '../pages/room/room';
 import { profilePage } from '../pages/profile/profile';
 import { questionCheckbox } from '../pages/question_checkbox/question_checkbox';
 import { createQuestionPage} from '../pages/createQuestion/createQuestion';
+import { createRoomPage } from '../pages/createRoom/createRoom';
 
 import {FIREBASE_PROVIDERS,
   defaultFirebase,
@@ -44,7 +45,7 @@ import {FIREBASE_PROVIDERS,
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Login;
+  rootPage: any = mainLoginPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 

@@ -12,6 +12,7 @@
         <!--{{preguntas[indice].encuesta.title}}-->
     
         <ion-list *ngIf="preguntas[indice].encuesta.tipo == 'checkbox'">
+            <!--<ion-list *ngIf="preguntas.tipo == 'checkbox'">-->
             <ion-list-header>
                 <strong>{{preguntas[indice].encuesta.title}}</strong>
             </ion-list-header>
@@ -53,6 +54,13 @@
                     <ion-option>Extramadamente</ion-option>
                 </ion-select>
             </ion-item>-->
+             <!--<ion-item ngFor que recorra labels>
+                 <ion-label>etiqueta de label</ion-label>
+                 <ion-select ....>
+                     <ion-option ngFor que recorra options></ion-option>
+                 </ion-select>
+             </ion-item>-->
+
             <ion-item>
                 <ion-label>Triste</ion-label>
                 <ion-select [(ngModel)]="emociones[0]" (click)="onModelChange($event,'triste')">

@@ -3,16 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>MyWenTis</ion-title>
-    <button item-right><ion-icon name="md-add-circle"></ion-icon></button>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-  <ion-item *ngFor="let item of datos_recuperados"  (click)='viewList(item.pin)'>
+  <ion-item *ngFor="let item of datos_recuperados"  (click)='viewRoom(item.pin)'>
     <ion-thumbnail item-left>
-      <img [src]="item.img">
+      <img [src]="item.image">
     </ion-thumbnail>
     <h2>{{item.Title}}</h2>
     <p>{{item.Content}}</p>

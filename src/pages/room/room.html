@@ -1,55 +1,79 @@
 <ion-header>
-    <ion-navbar>
-    
-        <ion-title>
-            Room
-        </ion-title>
-    </ion-navbar>
+  <ion-navbar>
+
+    <ion-title>
+      Room
+    </ion-title>
+    <ion-buttons end>
+       <button ion-button (click)="startQuestions()">Empezar</button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding="room">
+   <p><strong>Room pin: </strong>{{room_datos.pin}}</p>
   <ion-card>
-
-    <img [src]="room_datos.img"/>
+    
+    <img [src]="imgURL" />
 
     <ion-card-content>
       <ion-card-title>
-       {{room_datos.Title}}
+        {{room_datos.Title}}
       </ion-card-title>
-      <p>User Name: [[name]]</p>
-      <p>Room PIN: {{room_datos.pin}}</p>
+      
       <p>
         {{room_datos.Content}}
       </p>
       
     </ion-card-content>
-    
+
   </ion-card>
-
-  <!--<ion-list>
+  
+  <ion-item>
     
-    <ion-item *ngFor="let item of room_datos.Preguntas"> 
-      <h1 *ngIf="item.tipo == 'checkbox'">OK: {{item.tipo}}</h1>
-      <div *ngIf="item.tipo == 'checkbox'">
-        <h1>hola</h1>
-        <ion-label *ngIf="item.tipo == 'checkbox'">jasdkfjas</ion-label>
-        <ion-checkbox color="dark" checked="false"></ion-checkbox>
-      </div>
+      <label>Grupo</label>
+     
+      <select class="form-control" type="text" [(ngModel)]="grupoClase" name="type" required>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="total">Todos</option>
+      </select>
+      
+  <button ion-button color="dark" class="submit-btn"  block (click)="viewResult()">Ver Resultado</button>
+      
 
+  </ion-item>
+  <ion-list>
+    <ion-list-header>
+      
+      
+      <ion-buttons right>
+
+        <ion-row>
+       <ion-col col-5 style="margin-top:15px"> <strong><h1>Lista de cuestiones</h1></strong></ion-col>
+       <ion-col col-5></ion-col>
+       <ion-col col-2>
+    <button  ion-button clear class="button button-positive" icon-end (click)="addQuestions()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+       </ion-col>
+        </ion-row>
     
+      </ion-buttons>
+    </ion-list-header>
+    <ion-item *ngFor="let item of questions">
+      <h2>{{item.title}}</h2>
+      <p><strong>Type:</strong>{{item.type}}</p>
     </ion-item>
+  </ion-list>
+  
 
-    </ion-list>-->
-    <!--<ion-list>
-      <ion-list-header>List of Questions</ion-list-header>
-          <ion-item ngFor="let item of room_datos.Preguntas[indice]">
-        <ion-label>{{item.title}}</ion-label>
-        <ion-label>Type: {{item.tipo}}</ion-label>
-      </ion-item>
-    </ion-list>-->
+  <!--<button ion-button (click)="startQuestion($event,room_datos.Preguntas,0)">Empezar</button>-->
 
-    <button ion-button (click)="startQuestion($event,room_datos.Preguntas,0)">Empezar</button>
-    
-    <button ion-button (click)="cerrar($event)">Cerrar</button>
+  
 
 </ion-content>

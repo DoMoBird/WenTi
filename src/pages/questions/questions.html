@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-navbar>
+    
+        <ion-title>
+            Questions
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+   <ion-list *ngIf="checkbox[index].type == 'select'">
+       <ion-label><strong>{{checkbox[index].title}}</strong></ion-label>
+       <ion-item *ngFor="let item of checkbox[index].answer">
+                <ion-label>{{item.resp}}</ion-label>
+               <ion-select class="form-control" type="text" [(ngModel)]="optionSelect" (ngModelChange)="onModelChange($event)" name="type" required>
+                   <option *ngFor="let iterm of checbox[index].answerOptions"></option>
+               </ion-select>
+            </ion-item>
+
+   </ion-list>
+    <ion-list *ngIf="checkbox[index].type == 'checkbox'">
+            <!--<ion-list>-->
+            
+                <ion-label><strong>{{checkbox[index].title}}</strong></ion-label>
+            
+     <!--<ion-row>
+        <ion-col>
+           <ion-item *ngFor="let item of checkbox[index].answer">
+                <ion-col col-2>
+
+            <img *ngIf="item.resp == 'Contento'" src="/www/assets/img/contento.jpg" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Triste'" src="/www/assets/img/triste.png" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Enfadado'" src="/www/assets/img/enfadado.png" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Aburrido'" src="/www/assets/img/aburrido.jpg" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Sorprendido'" src="/www/assets/img/sorprendido.png" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Miedo'" src="/www/assets/img/miedo.jpg" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Asco'" src="/www/assets/img/asco.jpg" style="width: 50px; display: block">
+
+      </ion-col>
+                <ion-label>{{item.resp}}</ion-label>
+               <ion-checkbox color="dark" checked="false" (click)="onModelChangeCheckbox($event,item.resp)">
+                   
+               </ion-checkbox>
+            </ion-item>
+        </ion-col>
+     </ion-row>-->
+
+     <ion-row *ngFor="let item of checkbox[index].answer" style="margin-top: 20px">
+
+       <ion-col col-2>
+
+            <img *ngIf="item.resp == 'Contento'" src="/www/assets/img/contento.jpg" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Triste'" src="/www/assets/img/triste.png" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Enfadado'" src="/www/assets/img/enfadado.png" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Aburrido'" src="/www/assets/img/aburrido.jpg" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Sorprendido'" src="/www/assets/img/sorprendido.png" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Miedo'" src="/www/assets/img/miedo.jpg" style="width: 50px; display: block">
+            <img *ngIf="item.resp == 'Asco'" src="/www/assets/img/asco.jpg" style="width: 50px; display: block">
+
+      </ion-col>
+
+     <ion-col col-1 style="margin-top: 15px">
+       <ion-checkbox color="dark" checked="false" (click)="onModelChangeCheckbox($event,item.resp)"></ion-checkbox>
+    </ion-col>
+
+    <ion-col col-7 style="margin-top: 10px">
+      <ion-title>{{item.resp}}</ion-title>
+   </ion-col>
+
+   <ion-col col-2 style="margin-top: 10px">
+  </ion-col>
+
+   </ion-row>
+         </ion-list>
+
+         <ion-list radio-group *ngIf="checkbox[index].type == 'radio'">
+           
+                <strong>{{checkbox[index].title}}</strong>
+            
+            <ion-item *ngFor="let item of checkbox[index].answer">
+                <ion-label>{{item.resp}}</ion-label>
+               <ion-radio color="dark" checked="false" (click)="onModelChangeRadio($event,item.resp)"></ion-radio>
+            </ion-item>
+         </ion-list>
+
+         <ion-list *ngIf="checkbox[index].type == 'respuesta corta'">
+            
+            <ion-label>
+                <strong>{{checkbox[index].title}}</strong>
+                </ion-label>
+            <ion-item>
+                <ion-textarea type="text" name="descripcion" [(ngModel)]="input"></ion-textarea>
+            </ion-item>
+            
+          </ion-list>
+
+
+
+    <button ion-button *ngIf="index < checkbox.length-1"   color="dark" class="submit-btn" block (click)="nextQuestion($event)" >
+    Siguiente
+    </button>
+    <button ion-button *ngIf="index == checkbox.length-1"   color="dark" class="submit-btn" block (click)="finishQuestion($event)" >
+    Finalizar
+    </button>
+    
+</ion-content>

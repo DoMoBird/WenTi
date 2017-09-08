@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+    
+        <ion-title>
+            Resultado
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+    <p><strong><label>Grupo o Clase:  </label><label>{{grupo}}</label></strong></p>
+    
+    <strong><label>Cuestiones Contestadas:  </label></strong><label>{{resultado.length}}</label>
+    </ion-item>
+    
+    <ion-item>
+        <p><strong><label>Cuestion:  {{questions[0].title}}</label></strong></p>
+        <label>Número de Respuestas:  {{totalQuestion1}}</label>
+    <div style="display: block">
+        <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    
+
+    <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+    <button ion-button color="dark" (click)="randomizeType()" style="display: inline-block">Cambiar Vista</button>
+  </div>
+  </ion-item>
+
+    <ion-item>
+        <p><strong><label>Cuestion: {{questions[1].title}}</label></strong></p>
+        <label>Número de Respuestas:  {{totalQuestion2}}</label>
+    <div style="display: block">
+  <canvas baseChart
+              [data]="doughnutChartData2"
+              [labels]="doughnutChartLabels2"
+              [chartType]="doughnutChartType2"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+</div>
+    
+
+    <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+    <button ion-button color="dark" (click)="randomizeType2()" style="display: inline-block">Cambiar Vista</button>
+  </div>
+  </ion-item>
+
+    </ion-content>

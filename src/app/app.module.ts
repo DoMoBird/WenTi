@@ -16,14 +16,17 @@ import { roomPage } from '../pages/room/room';
 import { profilePage } from '../pages/profile/profile';
 import { questionCheckbox } from '../pages/question_checkbox/question';
 import { HttpModule } from '@angular/http';
-import { ChartsModule } from 'ng2-charts/charts/charts';
+//import { ChartsModule } from 'ng2-charts/charts/charts';
 import { Chart } from 'chart.js';
 import { createQuestionPage } from '../pages/createQuestion/createQuestion';
 import { createRoomPage } from '../pages/createRoom/createRoom';
 import { AuthProvider } from '../providers/auth/auth';
 import { config } from './app.firebaseconfig';
-
-
+import { questions } from '../pages/questions/questions';
+import { resultadoTotalPage } from '../pages/resultadoTotal/resultadoTotal';
+import { resultadoPage } from '../pages/resultado/resultado';
+//graficos
+import { ChartsModule } from 'ng2-charts';
 
 
 /*import { myService } from '../providers/myService/myService';*/
@@ -51,7 +54,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage, roomPage, questionCheckbox,
-     profilePage,createQuestionPage, createRoomPage
+     profilePage,createQuestionPage, createRoomPage, questions, resultadoPage, resultadoTotalPage
     
     
   ],
@@ -65,8 +68,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp, HomePage, ListPage, Login, RegisterPage, MyWenTisPage, mainLoginPage, studentLoginPage, roomPage, questionCheckbox,
-    profilePage, createQuestionPage, createRoomPage
-   
+    profilePage, createQuestionPage, createRoomPage, questions, resultadoPage, resultadoTotalPage
     
   ],
   providers: [

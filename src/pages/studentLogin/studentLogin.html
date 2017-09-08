@@ -8,11 +8,28 @@
     <ion-col></ion-col>
   </ion-row>
   <form #loginForm="ngForm">
-    <ion-item>
-	    <ion-input type="text"  name="name" [(ngModel)]="name" placeholder="Name"></ion-input>
-	  </ion-item>
+    <!--<ion-item>
+	    <ion-input type="text"  name="name" [(ngModel)]="grupo" placeholder="Introduce su grupo"></ion-input>
+	  </ion-item>-->
+
+   
+    
+      <label class="grup"><strong>Grupo: </strong></label>
+        
+     
+      <select class="select" type="text" [(ngModel)]="grupo" name="type" required>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+      </select>
+
+  
 
     <ion-item>
+      <label class="grup">Room PIN:</label> 
 	     <ion-input type="text"  name="number" [(ngModel)]="pin" placeholder="Room PIN"></ion-input>
 	  </ion-item>
    

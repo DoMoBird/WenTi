@@ -31,7 +31,7 @@ page-studentLogin{
          font-size: 1.0em;
          margin-bottom: 10px;
          border: 1px solid #ffffff;
-         border-bottom: 0px !important;
+         border-bottom: 1px !important;
          box-shadow: none !important;
          font-family: 'Play', sans-serif;
      }
@@ -44,6 +44,18 @@ page-studentLogin{
      .item-inner {
        border-bottom-color: #ffffff !important;
        box-shadow: none !important;
+     }
+     .grup{
+       font-family: 'Play', sans-serif;
+       margin-right: 10px;
+     }
+     .select{
+       border-radius: 30px !important;
+       padding-left: 30px !important;
+       margin-bottom: 10px;
+       border: 1px solid #ffffff;
+       border-bottom: 0px !important;
+       font-family: 'Play', sans-serif;
      }
 
      .submit-btn {

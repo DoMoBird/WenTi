@@ -1,15 +1,40 @@
 <ion-header>
   <ion-navbar>
-    <button bottom right>Cancel</button>
     <ion-title>NewRoom</ion-title>
+    <ion-buttons color="secondary" end>
+      <button ion-button (click)="close()">Cancel
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-    <form>
-        <ion-label>Title of Room</ion-label>
-        <ion-input type="text"></ion-input>
-        <ion-label>Description</ion-label>
-        <ion-textarea type="text"name="descripcion"></ion-textarea>
-    </form>
+<ion-content class="createRoom-content" padding>
+  <form (submit)="createRoom()" class="form-createRoom">
+    <ion-label><strong> Title of Room</strong></ion-label>
+    <ion-item class="form-group">
+    <ion-input class="form-control" type="text" [(ngModel)]="title" name="firstTitle" required></ion-input>
+    </ion-item>
+
+    <ion-label><strong> ID of Room</strong></ion-label>
+    <ion-item class="form-group">
+    <ion-input class="form-control" type="number" [(ngModel)]="idRoom" name="idRoom" required></ion-input>
+    </ion-item>
+    
+    <ion-label><strong>Descripcion</strong></ion-label>
+    <ion-item class="form-group">
+    <ion-textarea class="form-control" type="text" name="descripcionR" [(ngModel)]="descripcion" required></ion-textarea>
+    </ion-item>
+
+    <div>
+    <ion-label><strong>Choose a Photo for Room</strong></ion-label>
+    
+      <input id="image" name="image"  type="file" [(ngModel)]="image">
+    </div>
+    
+    <div>
+    <!--<input type="submit" value="submit" class="submit-btn" color="dark">-->
+    <button ion-button type ="submit" value= "submit" color="dark" class="submit-btn">Create Room</button>
+    </div>
+  </form>
+
 </ion-content>

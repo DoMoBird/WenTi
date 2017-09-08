@@ -31,6 +31,9 @@ export class HomePage {
 	ngOnInit(): void{
 		console.log("entramos en el init");
 		this._myservice.getDatos().subscribe(c => this.datos_recuperados=c);
+		//this._myservice.getRoomList().subscribe(c => this.datos_recuperados=c);
+		
+    
 	}
 
 	viewList(item){

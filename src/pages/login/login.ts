@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { EmailValidator } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth/auth';
-
+import { MyWenTisPage } from '../MyWenTis/MyWenTis';
 
 /**
  * Generated class for the Login page.
@@ -82,13 +82,16 @@ export class Login{
   
 
   login(){
-    this.showLoading();
+    //this.showLoading();
     this.authservice.loginUser(this.email, this.password).then((res: any) => {
       if (!res.code){
-        this.loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
-      }else
-        alert(res);
+        //this.loading.dismiss();
+        this.navCtrl.setRoot(MyWenTisPage);
+      }else{
+        this.showError("No existe! por favor, introducir de nuevo los datos!");
+        this.showAlert();
+        //alert(res);
+      }
     })
   }
 
@@ -96,9 +99,19 @@ export class Login{
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Please wait...',
+      duration: 500
     });
     this.loading.present();
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Finalizada !',
+      subTitle: 'Gracias por contestar la encuesta!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
  
   showError(text) {

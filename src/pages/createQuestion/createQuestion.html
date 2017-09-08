@@ -1,15 +1,121 @@
 <ion-header>
   <ion-navbar>
-    <button bottom right>Cancel</button>
     <ion-title>NewQuestion</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="close()">Cancel</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-    <form>
-        <ion-label>Question</ion-label>
-        <ion-input type="text"></ion-input>
-        <ion-label>Description</ion-label>
-        <ion-textarea type="text"name="descripcion"></ion-textarea>
-    </form>
+<ion-content class="createQuestion-content" padding>
+
+  <form (submit)="createQuestion()" class="form-createQuestion">
+    <ion-item>
+      <label>Type</label>
+      <select class="form-control" type="text" [(ngModel)]="typeQuestion" (ngModelChange)="onModelChange($event)" name="type" required>
+            <option value="select">Select</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio</option>
+            <option value="respuesta corta">Respuesta Corta</option>
+      </select>
+    </ion-item>
+
+    <ion-label><strong> Title of Question</strong></ion-label>
+    <ion-item class="form-group">
+      <ion-input class="form-control" type="text" [(ngModel)]="question" name="questions" required></ion-input>
+    </ion-item>
+
+    <ion-list *ngIf="typeQuestion == 'select'">
+      <ion-list-header>
+        <ion-row>
+       <ion-col col-4 style="margin-top:15px"> <strong><h1>Answers</h1></strong></ion-col>
+       <ion-col col-5></ion-col>
+       <ion-col col-2>
+       </ion-col>
+        </ion-row>
+      </ion-list-header>
+      <ion-row>
+        <ion-col>
+      <ion-item  *ngFor="let item of options"> 
+      <ion-label color="primary" stacked>Select</ion-label>
+      <ion-input type="text" placeholder="answer Input" [(ngModel)]="item.resp" name="answer"></ion-input>
+       </ion-item>
+        </ion-col>
+        <ion-col>
+       <ion-item  *ngFor="let item of option"> 
+      <ion-label color="primary" stacked>Options</ion-label>
+      <ion-input type="text" placeholder="answer Input" [(ngModel)]="item.respSelect" name="answer"></ion-input>
+       </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+    <ion-list *ngIf="typeQuestion == 'checkbox'">
+      <ion-list-header>
+        <ion-row>
+       <ion-col col-4 style="margin-top:15px"> <strong><h1>Answers</h1></strong></ion-col>
+       <ion-col col-5></ion-col>
+       <ion-col col-2>
+       </ion-col>
+        </ion-row>
+      </ion-list-header>
+      <ion-item  *ngFor="let item of options"> 
+        <ion-label color="primary" stacked>Checkbox</ion-label>
+        <ion-input type="text" placeholder="answer Input" [(ngModel)]="item.resp" name="answer"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngIf="typeQuestion == 'radio'">
+      <ion-list-header>
+        <ion-row>
+       <ion-col col-4 style="margin-top:15px"> <strong><h1>Answers</h1></strong></ion-col>
+       <ion-col col-5></ion-col>
+       <ion-col col-2>
+       </ion-col>
+        </ion-row>
+      </ion-list-header>
+      <ion-item  *ngFor="let item of options"> 
+        <ion-label color="primary" stacked>Radio</ion-label>
+        <ion-input type="text" placeholder="answer Input" [(ngModel)]="item.resp" name="answer"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+
+     <!--<ion-list *ngIf="typeQuestion == 'radio'">
+      <ion-list-header><strong>Answers</strong></ion-list-header>
+      <ion-item>
+        <ion-label color="primary" stacked>Radio 1</ion-label>
+        <ion-input type="text" placeholder="answer Input" [(ngModel)]="answer1" name="answer"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Answer2</ion-label>
+        <ion-input type="text" placeholder="answer Input" [(ngModel)]="answer2" name="answer2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Answer3</ion-label>
+        <ion-input type="text" placeholder="answer Input" [(ngModel)]="answer3" name="answer3"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Answer4</ion-label>
+        <ion-input type="text" placeholder="answer Input" [(ngModel)]="answer4" name="answer4"></ion-input>
+      </ion-item>
+
+    </ion-list>-->
+
+    <!--<input type="submit" value="submit" class="submit-btn" color="dark">-->
+    <button ion-button type ="submit" value= "submit" color="dark" class="submit-btn">Create Question</button>
+  </form>
+
+  <button ion-button icon-right color="danger" (click)="addOption($event)" >
+    Add Option
+    </button>
+
+
+  <!--<sub-checkbox *ngIf=" typeQuestion == 'Select'" ></sub-checkbox>-->
+
 </ion-content>

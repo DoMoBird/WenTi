@@ -53,7 +53,7 @@ export class questionCheckbox{
         +this.emociones[5]);
 
         if(this.indice>0)
-        e = this.resultados_anteriores+","+{
+        e = {
                 "pregunta": this.indice,
                 "respuestas": [
                 {"triste": this.emociones[0]},
@@ -83,7 +83,7 @@ export class questionCheckbox{
         if (this.preguntas[this.indice].encuesta.tipo == "checkbox"){
 
         if(this.indice>0)    
-        e = this.resultados_anteriores+","+{
+        e = {
                 "pregunta": this.indice,
                 "respuestas": [
                 {"triste": this.checkbox[0]},
@@ -114,7 +114,7 @@ export class questionCheckbox{
          if (this.preguntas[this.indice].encuesta.tipo == "respuesta corta"){
 
         if(this.indice>0)//OJO, ESTO DEBERÍA SER >0
-        e = this.resultados_anteriores+","+{
+        e = {
                 "pregunta": this.indice,
                 "respuestas": this.input
             };
@@ -128,21 +128,27 @@ export class questionCheckbox{
 
     nextQuestion($event){
        
-        /*this._myservice.getDatos().subscribe(c => this.datos_recuperados=c);
-        console.log("indice vale "+this.indice+" y length "+this.preguntas.length);
-        if(this.indice == this.preguntas.length-1){
-            console.log("ntro en el if");
+        this._myservice.getResponses(0).subscribe(r => this.responses=r);
 
-            //guardamos las respuestas con el put
-            this.nav.push(roomPage, this.datos_recuperados);
-        }*/
+        console.log("el indice es "+this.indice);
 
         var e = this.saveAnswers();
+
+        var cont=0;
+
+        for (var i in this.responses){
+            cont++;
+        }
+
+        console.log("cont vale "+cont);
+
+        this._myservice.putResult(0,cont,"","",e).subscribe(c => this.datos_recuperados=c);
+
         
-        let i = this.indice +1;
+        let j = this.indice +1;
         this.nav.push(questionCheckbox, {
           preguntas: this.preguntas, 
-          index: i, //incrementamos index para que pase a la siguiente pregunta
+          index: j, //incrementamos index para que pase a la siguiente pregunta
           respuestas : this.respuestas,
           resultado: e
        });
@@ -152,6 +158,11 @@ export class questionCheckbox{
     }
 
     finishQuestion($event){
+
+        this._myservice.getResponses(0).subscribe(r => this.responses=r);
+
+        console.log("el indice es "+this.indice);
+
         var e = this.saveAnswers();
 
         var cont=0;
@@ -160,8 +171,10 @@ export class questionCheckbox{
             cont++;
         }
 
+        console.log("cont vale "+cont);
+
         this._myservice.putResult(0,cont,"","",e).subscribe(c => this.datos_recuperados=c);
-        //this.nav.push(roomPage);
+        this.nav.push(roomPage);
         console.log("finalizamos");
 
     }
